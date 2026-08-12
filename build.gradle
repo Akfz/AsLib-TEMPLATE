@@ -48,7 +48,10 @@ subprojects {
         it.options.release = javaVer
     }
 
-
+    repositories {
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
 
     tasks.processResources {
         duplicatesStrategy = DuplicatesStrategy.INCLUDE
