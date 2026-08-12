@@ -48,17 +48,6 @@ dependencies {
     annotationProcessor "io.github.llamalad7:mixinextras-common:${mixinExtrasVer}"
 }
 
-sourceSets {
-    main {
-        java {
-            srcDirs = ['src/main/java']
-        }
-        resources {
-            srcDirs = ['src/main/resources']
-        }
-    }
-}
-
 tasks.named('processResources', ProcessResources).configure {
     inputs.properties rootProject.ext.modProperties
 
