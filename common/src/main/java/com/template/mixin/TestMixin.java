@@ -1,4 +1,4 @@
-package smth.template_mod.mixin;
+package com.template.mixin;
 
 import net.minecraft.client.gui.screens.TitleScreen;
 import org.spongepowered.asm.mixin.Mixin;
@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(TitleScreen.class)
 public class TestMixin {
 
-    @Inject(at = @At("HEAD"), method = "init()V")
+    @Inject(at = @At("TAIL"), method = "init")
     private void onInit(CallbackInfo info) {
         System.out.println("=============================================");
         System.out.println("Template Mod!");

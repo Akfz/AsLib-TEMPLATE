@@ -1,9 +1,15 @@
 plugins {
     id 'fabric-loom'
+    id 'maven-publish'
 }
 
 base {
     archivesName = "${project.archives_base_name}-common"
+}
+
+java {
+    withSourcesJar()
+    withJavadocJar()
 }
 
 repositories {
@@ -14,6 +20,13 @@ repositories {
 configurations {
     embed
     implementation.extendsFrom(embed)
+}
+
+sourceSets {
+    main {
+        resources.srcDirs += ['src/generated/resources']
+        java.srcDirs += ['src/generated/java']
+    }
 }
 
 dependencies {
@@ -45,7 +58,35 @@ tasks.named('processResources', ProcessResources).configure {
     }
 }
 
+tasks.named('javadoc', Javadoc).configure {
+    options {
+        encoding = 'UTF-8'
+        charSet = 'UTF-8'
+        addStringOption('Xdoclint:none', '-quiet')
+    }
+}
+
 jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     from sourceSets.main.output
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = "${project.archives_base_name}-common"
+            from components.java
+        }
+    }
+    repositories {
+        if (project.hasProperty('publishing-dir')) {
+            maven {
+                url = rootProject.file(project.property('publishing-dir'))
+            }
+        }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs << "-AmodLoaderTarget=common"
 }

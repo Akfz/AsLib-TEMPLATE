@@ -1,27 +1,33 @@
 modLoader="javafml"
 loaderVersion="[47,)"
-license="MIT <- U CAN CHANGE"
+license="Change this"
 
 [[mods]]
-modId="template"
+modId="temp"
 version="1.0-SNAPSHOT"
-displayName="TEMPLATE"
+displayName="DBuildTemplate"
 logoFile="icon.png"
-authors="Akaize, SweetB1ans <- U CAN CHANGE"
+authors="Akaize"
+displayURL="https://github.com/Akfz/DBuild"
 description="""
-"""
+ChangeME!"""
 
-[[dependencies.template]]
+[[mixins]]
+config="temp.mixins.json"
+
+[[dependencies.temp]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.20.1,1.21)"
     ordering="NONE"
     side="BOTH"
+    type="required"
 
-[[dependencies.template]]
+[[dependencies.temp]]
     modId="forge"
     mandatory=true
     versionRange="[47,)"
     ordering="NONE"
     side="BOTH"
+    type="required"
 

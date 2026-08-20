@@ -1,22 +1,26 @@
 {
   "schemaVersion": 1,
-  "id": "template",
+  "id": "temp",
   "version": "1.0-SNAPSHOT",
-  "name": "TEMPLATE",
-  "description": "Library for structural resource packs",
-  "license": "MIT <- U CAN CHANGE",
-  "icon": "assets/template/icon.png",
+  "name": "DBuildTemplate",
+  "description": "ChangeME!",
+  "license": "Change this",
+  "icon": "assets/temp/icon.png",
   "environment": "*",
   "authors": [
-    "Akaize",
-    "SweetB1ans <- U CAN CHANGE"
+    "Akaize"
   ],
   "contact": {
-    "homepage": "",
-    "sources": ""
+    "homepage": "https://github.com/Akfz/DBuild"
   },
-  "entrypoints": { "main": [ "smth.template_mod.fabric.FabricInit" ] },
-  "mixins": [ "template.mixins.json" ],
+  "entrypoints": {
+    "main": [
+      "com.template.TemplateMod_fabric"
+    ]
+  },
+  "mixins": [
+    "temp.mixins.json"
+  ],
   "depends": {
     "fabricloader": ">=0.15.11",
     "minecraft": "1.20.1"
