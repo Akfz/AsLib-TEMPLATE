@@ -82,6 +82,7 @@ subprojects {
     dependencies {
         if (project.hasProperty('aslib_version') && project.aslib_version) {
             implementation "v.akfz:aslib-${project.name}:${project.aslib_version}"
+            annotationProcessor "v.akfz:aslib-${project.name}:${project.aslib_version}"
         }
         if (project.hasProperty('dbuild_version') && project.dbuild_version) {
             compileOnly "v.akfz:DBuild:${project.dbuild_version}"
