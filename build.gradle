@@ -50,13 +50,8 @@ subprojects {
 
     if (project.name != 'common') {
         evaluationDependsOn(':common')
-        dependencies {
-            implementation project(':common')
-        }
-
-        tasks.withType(Jar).configureEach {
-            from project(':common').sourceSets.main.output
-        }
+        sourceSets.main.java.srcDirs += project(':common').sourceSets.main.java.srcDirs
+        sourceSets.main.resources.srcDirs += project(':common').sourceSets.main.resources.srcDirs
     }
 
     tasks.processResources {
